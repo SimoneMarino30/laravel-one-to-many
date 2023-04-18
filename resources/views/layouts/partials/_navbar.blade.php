@@ -28,6 +28,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('projects.index') }}">{{ __('Guest') }}</a>
                         </li>
+                        <li class="nav-item">
+                            {{-- <a class="nav-link" href="{{ route('types') }}">{{ __('Types') }}</a> --}}
+                        </li>
                     </ul>
                     @endauth
                     <!-- Right Side Of Navbar -->

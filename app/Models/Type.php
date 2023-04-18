@@ -9,6 +9,8 @@ class Type extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['label', 'color'];
+
     // # Relations method one to many
 
     public function projects() {

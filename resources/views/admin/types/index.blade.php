@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Projects.index')
+@section('title', 'Types.index')
 
 @section('content')
 <div class="row my-4">
-      <form class="col-8 d-flex justify-content-start" role="search">
+      {{-- <form class="col-8 d-flex justify-content-start" role="search">
         <input class="form-control me-2" name="term" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-0" type="submit">Search</button>
-      </form>
+      </form> --}}
       <div class="col-4 d-flex justify-content-end">
-        <a type="button" href="{{ route('admin.projects.create') }}" class="btn btn-outline-primary">
-          Create New Project
+        <a type="button" href="{{ route('admin.types.create') }}" class="btn btn-outline-primary">
+          Create New Stack Type
         </a>
         
       </div>
@@ -20,52 +20,50 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Title</th>
-      <th scope="col">Stack</th>
-      <th scope="col">Date</th>
+      <th scope="col">Label</th>
+      <th scope="col">Color</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    @forelse($projects as $project)
+    @forelse($types as $type)
     <tr>
-      <th scope="row">{{ $project->id }}</th>
-      <td>{{ $project->title }}</td>
-      <td>{{ $project->type?->label }}</td>
-      <td>{{ $project->date }}</td>
+      <th scope="row">{{ $type->id }}</th>
+      <td>{{ $type->label }}</td>
+      <td>{{ $type->color }}</td>
       <td>
-        <a href="{{ route('admin.projects.show', $project) }}">
+        <a href="{{ route('admin.types.show', $type) }}">
         <i class="bi bi-eye-fill me-3"></i>
         </a>
 
-        <a href="{{ route('admin.projects.edit', $project) }}">
+        <a href="{{ route('types.edit', $type) }}">
           <i class="bi bi-pencil-fill me-3"></i>
         </a>
 
-        <button class="bi bi-trash3-fill text-danger btn-trash" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $project->id }}"></button>
+        <button class="bi bi-trash3-fill text-danger btn-trash" data-bs-toggle="modal" data-bs-target="#delete-type-{{ $type->id }}"></button>
       </td>
     </tr>
     @empty
     @endforelse
   </tbody>
 </table>
-{{ $projects->links() }}
+{{-- {{ $types->links() }} --}}
 @endsection
 
 @section('modals')
-@foreach ($projects as $project)
+@foreach ($types as $type)
 <!-- Modal -->
-<div class="modal fade" id="delete-modal-{{ $project->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete-modal-{{ $type->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header modal-bg">
-        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Il progetto n° {{ $project->id }} sta per essere eliminato</h1>
+        <h1 class="modal-title fs-5 text-danger" id="delete-type-modal">La tipologia n° {{ $type->id }} sta per essere eliminato</h1>
         <a type="button" class="text-light" data-bs-dismiss="modal" aria-label="Close">
           <i class="bi bi-x-circle"></i>
         </a>
       </div>
       <div class="modal-body modal-bg">
-        Vuoi eliminare definitivamente il progetto? <br>
+        Vuoi eliminare definitivamente la tipologia ""{{ $type->label }}? <br>
         La risorsa non potrà essere recuperata
       </div>
       <div class="modal-footer modal-bg">
@@ -75,7 +73,7 @@
           Annulla
         </button>
       
-        <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+        <form action="{{ route('types.destroy', $type) }}" method="POST">
           @csrf
           @method('delete')
           
