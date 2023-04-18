@@ -19,6 +19,7 @@ class="row gy-3">
   @csrf
   @method('PUT')
 
+  {{-- TITLE --}}
 <div class="col-6">
   <label for="title" class="form-label">Title</label>
   <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" 
@@ -29,6 +30,25 @@ class="row gy-3">
   </div>
   @enderror
 
+  {{-- SELECT TYPE --}}
+
+  <label for="type_id" class="form-label">Stack</label>
+  <select class="form-select @error('type_id') is-invalid @enderror" id="type_id" name="type_id">
+    <option value="">Nessuna tipologia</option>
+    @foreach($types as $type)
+    <option @if(old('type_id', $project->type_id) == $type->id) selected @endif value="{{ $type->id }}">{{ $type->label }}</option>
+    @endforeach
+    {{-- prova errore --}}
+    {{-- <option value="10">Prova errore</option> --}}
+  </select>
+  @error('type_id')
+  <div class="invalid-feedback">
+    {{ $message }}
+  </div>
+  @enderror
+
+  {{-- DATE --}}
+
   <label for="date" class="form-label">Date</label>
   <input type="text" class="form-control @error('date') is-invalid @enderror" id="date" name="date" 
   value="{{ old('date') ?? $project->date}}">
@@ -38,6 +58,8 @@ class="row gy-3">
   </div>
   @enderror
 
+  {{-- DESCRIPTION --}}
+
   <label for="description" class="form-label">Description</label>
   <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description" 
   value="{{ old('description') ?? $project->description }}">
@@ -46,6 +68,8 @@ class="row gy-3">
     {{ $message }}
   </div>
   @enderror
+
+  {{-- LINK --}}
 
   <label for="link" class="form-label">Link</label>
   <input type="file" class="form-control @error('link') is-invalid @enderror" id="link" name="link"  

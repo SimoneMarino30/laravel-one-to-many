@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
@@ -38,7 +39,8 @@ class ProjectController extends Controller
     public function create()
     {
         $project = new Project;
-        return view('admin.projects.create', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.create', compact('project', 'types'));
     }
 
     /**
@@ -84,7 +86,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();   
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -128,7 +131,8 @@ class ProjectController extends Controller
             'title' => 'required|string|max:100',
             'link' => 'nullable|image|mimes:jpg,png,jpeg',
             'date' => 'required|string',
-            'description' => 'nullable|string', 
+            'description' => 'nullable|string',
+            'type_id' => 'nullable|exists:types,id'
         ],
         [
             'title.required' => 'il titolo è obbligatorio',
@@ -142,6 +146,8 @@ class ProjectController extends Controller
             'date.string' => 'la data deve essere in formato data',
 
             'description.string' => 'la descrizione deve essere una stringa',
+
+            'type_id.exists' => 'l\' ID della tipologia non è valido'
 
 
         ])->validate();

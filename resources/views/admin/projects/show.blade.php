@@ -9,7 +9,7 @@
     <figure class="float-end ms-5 mb-3">
       <img src="{{ $project->link ? asset('storage/' . $project->link) : 'https://www.frosinonecalcio.com/wp-content/uploads/bfi_thumb/default-placeholder-38gbdutk2nbrubtodg93tqlizprlhjpd1i4m8gzrsct8ss250.png' }}" alt="" class="img-fluid">
     </figure>
-    
+    <div>{{ $project->type?->label }}</div>
     {{-- MUTATOR VERSION FOR WHEN IS WORKING --}}
     {{-- $value ? asset('storage/' . $value) : 'https://www.frosinonecalcio.com/wp-content/uploads/bfi_thumb/default-placeholder-38gbdutk2nbrubtodg93tqlizprlhjpd1i4m8gzrsct8ss250.png' --}}
     <figcaption>

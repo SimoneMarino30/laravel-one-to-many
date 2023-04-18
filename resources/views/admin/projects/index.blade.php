@@ -21,6 +21,7 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Title</th>
+      <th scope="col">Stack</th>
       <th scope="col">Date</th>
       <th scope="col">Actions</th>
     </tr>
@@ -30,6 +31,7 @@
     <tr>
       <th scope="row">{{ $project->id }}</th>
       <td>{{ $project->title }}</td>
+      <td>{{ $project->type?->label }}</td>
       <td>{{ $project->date }}</td>
       <td>
         <a href="{{ route('admin.projects.show', $project) }}">

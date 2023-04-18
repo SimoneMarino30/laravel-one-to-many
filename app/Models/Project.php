@@ -10,7 +10,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["title", "link", "date", "description"];
+    protected $fillable = ["title", "link", "date", "description", 'type_id'];
 
     // # Mutator date
     protected function getDateAttribute($value) {
