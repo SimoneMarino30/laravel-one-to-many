@@ -1,10 +1,17 @@
 <?php
 
+// PROFILE
 use App\Http\Controllers\ProfileController;
+
+// ADMIN
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Admin\TypeController;
+
+// GUEST
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Guest\ProjectController as GuestProjectController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +25,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// # GUEST ROUTES
+
 Route::get('/', [GuestHomeController::class, 'index']);
 
 Route::resource('projects', GuestProjectController::class);
 
+// # ADMIN ROUTES
 
+// prjects routes
 Route::get('/home', [AdminHomeController::class, 'index'])->middleware('auth')->name('home');
 
+// types routes
+Route::resource('types', TypeController::class);
 
 Route::middleware('auth')
 ->prefix('/Admin')
