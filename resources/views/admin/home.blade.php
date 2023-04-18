@@ -23,5 +23,11 @@
             </div>
         </div>
     </div>
+
+    <div class="col-4 d-flex justify-content-end">
+        <a type="button" href="{{ route('types.index') }}" class="btn btn-outline-primary">
+          Create New Stack Type
+        </a> 
+    </div>
 </div>
 @endsection

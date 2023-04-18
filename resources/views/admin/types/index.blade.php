@@ -9,7 +9,7 @@
         <button class="btn btn-outline-primary my-0" type="submit">Search</button>
       </form> --}}
       <div class="col-4 d-flex justify-content-end">
-        <a type="button" href="{{ route('admin.types.create') }}" class="btn btn-outline-primary">
+        <a type="button" href="{{ route('types.create') }}" class="btn btn-outline-primary">
           Create New Stack Type
         </a>
         
@@ -32,7 +32,7 @@
       <td>{{ $type->label }}</td>
       <td>{{ $type->color }}</td>
       <td>
-        <a href="{{ route('admin.types.show', $type) }}">
+        <a href="{{ route('types.show', $type) }}">
         <i class="bi bi-eye-fill me-3"></i>
         </a>
 

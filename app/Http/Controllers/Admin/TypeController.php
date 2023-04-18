@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -29,6 +30,7 @@ class TypeController extends Controller
      */
     public function create()
     {
+        $types = Type::all();
         return view('admin.types.create', compact('types'));
     }
 
