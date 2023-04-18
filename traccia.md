@@ -1,26 +1,21 @@
--   11/4
-    Creiamo con Laravel il nostro sistema di gestione del nostro Portfolio di progetti.
+Ciao ragazzi,
+continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo e aggiungiamo una nuova entità Type. Questa entità rappresenta la tipologia di progetto ed è in relazione one to many con i progetti.
 
-Oggi iniziamo un nuovo progetto che si arricchirà nel corso delle prossime lezioni: man mano aggiungeremo funzionalità e vedremo la nostra applicazione crescere ed evolvere.
+I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che abbiamo fatto nelle lezioni dei giorni scorsi:
 
-Nel pomeriggio, rifate ciò che abbiamo visto insieme stamattina stilando tutto a vostro piacere utilizzando SASS.
-Descrizione:
+-   creare la migration per la tabella types
+-   creare il model Type
+-   creare la migration di modifica per la tabella projects per aggiungere la chiave esterna
+-   aggiungere ai model Type e Project i metodi per definire la relazione one to many
+-   visualizzare nella pagina di dettaglio di un progetto la tipologia associata, se presente
+-   permettere all'utente di associare una tipologia nella pagina di creazione e modifica di un progetto
+-   gestire il salvataggio dell'associazione progetto-tipologia con opportune regole di validazione
 
--   Ripercorriamo gli steps fatti a lezione ed iniziamo un nuovo progetto usando laravel breeze ed il pacchetto Laravel 9 Preset con autenticazione. ✔
+**Bonus 1:**
 
-Iniziamo con il definire il layout, modello, migrazione, controller e rotte necessarie per il sistema portfolio:
+creare il seeder per il model Type.
 
--   Autenticazione: si parte con l'autenticazione e la creazione di un layout per back-office ✔
+**Bonus 2:**
 
--   Creazione del modello Project con relativa migrazione, seeder, controller e rotte ✔
-
--   Per la parte di back-office creiamo un resource controller Admin\\ProjectController per gestire tutte le operazioni CRUD dei progetti ✔
-
-*   12/4
-    Continuate a lavorare sulla repository di ieri per completare le operazioni CRUD sul progetto
-
-*   Bonus
-
--   Dividete i fogli di stile front e back office e realizzate una homepage del sito in cui visualizzare i progetti per tutti gli utenti Guest in formato "card". ✔
-
--   Sul click su una card mostrare una pagina di dettaglio ✔
+aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
+Buon lavoro e buon divertimento!
