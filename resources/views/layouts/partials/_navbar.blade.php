@@ -29,7 +29,7 @@
                             <a class="nav-link" href="{{ route('projects.index') }}">{{ __('Guest') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('types.index') }}">{{ __('Types') }}</a>
+                            <a class="nav-link" href="{{ route('types.index') }}">{{ __('Stacks') }}</a>
                         </li>
                     </ul>
                     @endauth

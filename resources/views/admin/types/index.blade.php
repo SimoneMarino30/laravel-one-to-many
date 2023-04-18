@@ -8,19 +8,20 @@
         <input class="form-control me-2" name="term" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-0" type="submit">Search</button>
       </form> --}}
-      <div class="col-4 d-flex justify-content-end">
-        <a type="button" href="{{ route('types.create') }}" class="btn btn-outline-primary">
-          Create New Stack Type
+      <div class="col-12 d-flex justify-content-end">
+        <a type="button" href="{{ route('types.create') }}" class="btn btn-outline-primary ms-auto">
+          New Stack
         </a>
         
       </div>
   </div>
 
-  <table class="table my-5">
+  <table class="table table-striped my-5">
   <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Label</th>
+      <th scope="col"></th>
       <th scope="col">Color</th>
       <th scope="col">Actions</th>
     </tr>
@@ -29,8 +30,15 @@
     @forelse($types as $type)
     <tr>
       <th scope="row">{{ $type->id }}</th>
-      <td>{{ $type->label }}</td>
-      <td>{{ $type->color }}</td>
+      <td>
+        <span class="badge rounded-pill" style="background-color: {{ $type->color }}">{{ $type->label }}</span>
+      </td>
+      <td  class="d-flex justify-content-end">
+        <span class="rounded-circle d-inline-block color_preview" style="background-color: {{ $type->color }}"></span>
+      </td>
+      <td>
+        {{ $type->color }}
+      </td>
       <td>
         <a href="{{ route('types.show', $type) }}">
         <i class="bi bi-eye-fill me-3"></i>

@@ -10,8 +10,8 @@
     margin: 0.8rem;
 }
 
-.col {
-    // border: 3px dashed greenyellow;
+.debug {
+    border: 3px dashed greenyellow;
 }
 
 .grid-container {
@@ -28,4 +28,11 @@
 
 a {
     text-decoration: none;
+}
+
+// views.types.index pallini
+
+.color_preview {
+    width: 25px;
+    height: 25px;
 }
