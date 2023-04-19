@@ -29,6 +29,7 @@
         <main class="container">
             <h1 class="my-5">@yield('title')</h1>
             @yield('content')
+            @yield('tasks-list')
         </main>
     </div>
 

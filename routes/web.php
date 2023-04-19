@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\TaskController;
 
 // GUEST
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
@@ -36,29 +37,12 @@ Route::resource('projects', GuestProjectController::class);
 // projects routes
 Route::get('/home', [AdminHomeController::class, 'index'])->middleware('auth')->name('home');
 
-// types routes all resources (not working)
+// types routes all resources
 Route::resource('types', TypeController::class);
 
-// // * (TYPE) Rotta per la lista index (TYPE)
-// Route::get('/types', [TypeController::class, 'index'])->middleware('auth')->name('types');
+// tasks routes all resources
+Route::resource('tasks', TaskController::class);
 
-// // * (TYPE) Rotta per il dettaglio risorsa show
-// Route::get('/types/{type}', [TypeController::class, 'show'])->name('types.show');
-
-// // * (TYPE) Rotta per il form creazione risorsa
-// Route::get('/types/create', [TypeController::class, 'create'])->name('types.create');
-
-// // * (TYPE) Rotta per il salvataggio form creazione risorsa
-// Route::get('/types', [TypeController::class, 'store'])->name('types.store');
-
-// // * (TYPE) Rotta per il form di modifica risorsa
-// Route::get('/types/{record}/edit', [TypeController::class, 'edit'])->name('types.edit');
-
-// // * (TYPE) Rotta per il form di modifica risorsa
-// Route::put('/types/{record}/update', [TypeController::class, 'update'])->name('types.update');
-
-// // * (TYPE) Rotta per cancellazione risorsa singola
-// Route::delete('/types/{type}/destroy', [TypeController::class, 'destroy'])->name('types.destroy');
 
 Route::middleware('auth')
 ->prefix('/Admin')

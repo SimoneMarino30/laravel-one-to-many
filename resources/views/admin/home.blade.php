@@ -18,16 +18,42 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in! Get to work now !!!') }}
+                    
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="col-4 d-flex justify-content-end">
-        <a type="button" href="{{ route('types.index') }}" class="btn btn-outline-primary">
-          Create New Stack Type
-        </a> 
-    </div>
 </div>
+@endsection
+
+@section('tasks-list')
+<ul>
+        @foreach ($tasks as $task)
+            <li class="d-flex">
+                <form method="POST" action="{{ route('tasks.update', $task) }}">
+                    @csrf
+                    @method('PUT')
+                    <label>
+                        <input type="checkbox" name="completed" onchange="this.form.submit()" {{ $task->completed_at ? 'checked' : '' }}>
+                        {{ $task->title }}
+                    </label>
+                    <span class="mx-5">{{ $task->completed_at }}</span>
+                </form>
+                @if ($task->completed_at)
+                    <form method="POST" action="{{ route('tasks.destroy', $task) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="bi bi-trash3-fill text-danger btn-trash" data-bs-toggle="modal" data-bs-target="#delete-type-{{ $task->completed_at }}"></button>
+                    </form>
+                @endif
+            </li>
+        @endforeach
+    </ul>
+    <form method="POST" action="{{ route('tasks.store') }}">
+        @csrf
+        <label for="title">New Task:</label>
+        <input type="text" id="title" name="title" required>
+        <button type="submit">Add</button>
+    </form>
 @endsection

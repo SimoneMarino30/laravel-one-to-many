@@ -17,6 +17,7 @@ method="POST" class="row gy-3">
     <option value="">Default</option>
     @foreach($types as $type)
     <option @if(old('type_id') == $type->id) @endif value="{{ $type->id }}">{{ $type->label }}</option>
+    
     @endforeach
     {{-- prova errore --}}
     {{-- <option value="10">Prova errore</option> --}}
@@ -30,14 +31,8 @@ method="POST" class="row gy-3">
   {{-- SELECT TYPE --}}
   
   <label for="type_id" class="form-label">Color</label>
-  <select class="color @error('type_id') is-invalid @enderror" id="type_id" name="type_id" >
-    <option value="">Default</option>
-    @foreach($types as $type)
-    {{-- <option @if(old('type_id') == $type->id) @endif value="{{ $type->id }}">{{ $type->label }}</option> --}}
-    @endforeach
-    {{-- prova errore --}}
-    {{-- <option value="10">Prova errore</option> --}}
-  </select>
+  <input type="color" >
+  
   @error('type_id')
   <div class="invalid-feedback">
     {{ $message }}

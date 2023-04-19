@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="logo_laravel">
@@ -20,7 +20,7 @@
                     @auth
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            <a class="nav-link @if(request()->routeIs('home*')) active @endif" href="{{ route('home') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.projects.index') }}">{{ __('Projects') }}</a>
@@ -30,6 +30,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('types.index') }}">{{ __('Stacks') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tasks.index') }}">{{ __('Tasks') }}</a>
                         </li>
                     </ul>
                     @endauth
