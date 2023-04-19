@@ -17,7 +17,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="bg-dark">
+    <body style="background-color: #222">
         @include('layouts.partials._navbar')
         <main class="container d-flex flex-wrap my-5">
            @yield('guest-view')

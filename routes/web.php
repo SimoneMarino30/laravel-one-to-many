@@ -26,13 +26,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// # GUEST ROUTES
+// * GUEST ROUTES
 
 Route::get('/', [GuestHomeController::class, 'index']);
 
 Route::resource('projects', GuestProjectController::class);
 
-// # ADMIN ROUTES
+// * ADMIN ROUTES
 
 // projects routes
 Route::get('/home', [AdminHomeController::class, 'index'])->middleware('auth')->name('home');
@@ -60,7 +60,7 @@ Route::middleware('auth')
     Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
 });
 
-// * AGGIUNGO PREFISSO E NAME UNA VOLTA SOLA VISTO CHE UGUALE PER TUTTE LE ROTTE
+//  AGGIUNGO PREFISSO E NAME UNA VOLTA SOLA VISTO CHE UGUALE PER TUTTE LE ROTTE
 // Route::middleware('auth')
 // ->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

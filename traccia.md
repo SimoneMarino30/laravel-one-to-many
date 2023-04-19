@@ -1,3 +1,5 @@
+-   18/04/23
+
 Ciao ragazzi,
 continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo e aggiungiamo una nuova entità Type. Questa entità rappresenta la tipologia di progetto ed è in relazione one to many con i progetti.
 
@@ -13,9 +15,8 @@ I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che a
 
 **Bonus 1:**
 
-creare il seeder per il model Type. ✔
+-   creare il seeder per il model Type. ✔
 
 **Bonus 2:**
 
-aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione.
-Buon lavoro e buon divertimento!
+-   aggiungere le operazioni CRUD per il model Type, in modo da gestire le tipologie di progetto direttamente dal pannello di amministrazione. ✔

@@ -19,21 +19,14 @@
                     @endif
 
                     {{ __('You are logged in! Get to work now !!!') }}
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-
-@section('tasks-list')
+                    @section('tasks-list')
 <ul>
         @foreach ($tasks as $task)
             <li class="d-flex">
                 <form method="POST" action="{{ route('tasks.update', $task) }}">
                     @csrf
                     @method('PUT')
+                    <span class="mx-5">{{ $task->created_at }}</span>
                     <label>
                         <input type="checkbox" name="completed" onchange="this.form.submit()" {{ $task->completed_at ? 'checked' : '' }}>
                         {{ $task->title }}
@@ -57,3 +50,11 @@
         <button type="submit">Add</button>
     </form>
 @endsection
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+
